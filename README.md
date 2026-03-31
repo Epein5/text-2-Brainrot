@@ -2,7 +2,8 @@
 ```
 rules = [
 "Use vim only",
-"Use No AI assistants"
+"Use No AI assistants",
+"No VS code"
 ]
 
 ```
