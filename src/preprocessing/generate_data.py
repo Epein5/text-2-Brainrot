@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 load_dotenv()
 
 
-GENERATIONS_PER_PURPOSE = 1
+GENERATIONS_PER_PURPOSE = 20
 OUTPUT_CSV = "./data/synthetic/data.csv"
 MODEL_NAME = "gemini-3.1-flash-lite-preview"
 TEMPERATURE = 2.0
@@ -44,99 +44,99 @@ COMMUNICATION_PURPOSES: list[str] = [
     # Email and text
     "Request for leave", "Meeting reminder", "Project update", "Event invitation", "Appointment confirmation",
     # LinkedIn
-    # "LinkedIn connection request", "LinkedIn job inquiry", "LinkedIn recommendation request",
-    # "LinkedIn congratulatory message", "LinkedIn follow-up after interview",
-    # # Instagram
-    # "Instagram DM for collaboration", "Instagram story reply", "Instagram influencer outreach",
-    # "Instagram giveaway announcement", "Instagram product inquiry", "Instagram feedback request",
-    # "Instagram event RSVP", "Instagram product review request", "Instagram thank you message",
-    # # Email/text (extended)
-    # "Customer support inquiry", "Sales follow-up", "Invoice reminder", "Payment confirmation",
-    # "Subscription renewal notice", "Survey participation request", "Feedback solicitation",
-    # "Account activation", "Password reset", "Account deactivation notice",
-    # # Social/professional
-    # "Twitter DM for networking", "Twitter event promotion", "Facebook group invite",
-    # "Facebook event reminder", "Facebook page update",
-    # # General messaging
-    # "Holiday greeting", "Congratulations on achievement", "Condolence message",
-    # "Job offer notification", "Interview scheduling",
-    # # Team/messaging apps
-    # "Teams meeting invite", "Teams project update", "Signal urgent alert",
-    # "Messenger group creation", "Messenger event update",
-    # "Slack channel announcement", "Slack direct message for help",
-    # "Discord server invite", "WhatsApp group update", "Telegram broadcast message",
-    # # Professional/business
-    # "Job application follow-up", "Salary negotiation email", "Resignation letter",
-    # "Client onboarding welcome", "Vendor contract renewal", "Board meeting summary",
-    # "Quarterly report distribution", "Employee performance review", "Team standup summary",
-    # "Sprint retrospective notes", "Budget approval request", "Expense reimbursement claim",
-    # "Policy change announcement", "Training session invite", "Mentorship program intro",
-    # # Customer-facing
-    # "Product launch announcement", "Shipping status update", "Return/refund confirmation",
-    # "Loyalty reward notification", "Waitlist update", "Service outage notification",
-    # "Maintenance window alert", "Feature request acknowledgment", "Beta testing invitation",
-    # "Referral program invite",
-    # # Academic/education
-    # "Course enrollment confirmation", "Assignment submission reminder", "Grade release notification",
-    # "Scholarship application update", "Parent-teacher meeting invite", "Study group formation",
-    # "Research collaboration proposal", "Thesis advisor check-in", "Campus event announcement",
-    # "Alumni networking outreach",
-    # # Personal/social
-    # "Apology message", "Thank you note after dinner", "Moving announcement",
-    # "Roommate search post", "Carpool coordination", "Potluck planning", "Book club discussion",
-    # "Workout buddy request", "Travel itinerary sharing", "Lost item inquiry",
-    # # Community/civic
-    # "Volunteer opportunity", "Fundraiser announcement", "Neighborhood watch alert",
-    # "Local government notice", "Petition signature request", "Community cleanup invite",
-    # "Town hall meeting notice", "Blood donation drive", "Missing pet alert", "Garage sale announcement",
-    # # Healthcare/medical
-    # "Doctor appointment reminder", "Prescription refill notice", "Lab results notification",
-    # "Insurance claim update", "Vaccination appointment", "Telemedicine session link",
-    # "Hospital discharge summary", "Mental health check-in", "Dental cleaning reminder",
-    # "Physical therapy follow-up",
-    # # Real estate/housing
-    # "Rental application status", "Lease renewal notice", "Property viewing schedule",
-    # "Mortgage pre-approval update", "Maintenance request acknowledgment", "Rent payment reminder",
-    # "New listing alert", "Open house invitation", "Tenant move-out notice", "HOA meeting announcement",
-    # # E-commerce/shopping
-    # "Cart abandonment reminder", "Flash sale alert", "Back-in-stock notification",
-    # "Price drop alert", "Wishlist item on sale", "Gift card delivery",
-    # "Review request after purchase", "Warranty expiration notice", "Subscription box shipment",
-    # "Size exchange confirmation",
-    # # Travel/hospitality
-    # "Flight booking confirmation", "Hotel reservation reminder", "Trip itinerary update",
-    # "Visa application status", "Airport gate change alert", "Car rental pickup details",
-    # "Tour booking confirmation", "Travel insurance reminder", "Cruise embarkation details",
-    # "Airbnb check-in instructions",
-    # # Finance/banking
-    # "Transaction alert", "Credit card statement ready", "Loan application update",
-    # "Investment portfolio summary", "Tax filing reminder", "Suspicious activity alert",
-    # "Wire transfer confirmation", "Direct deposit notification", "Credit score update",
-    # "Overdraft warning",
-    # # Legal/government
-    # "Court hearing reminder", "Jury duty summons", "Passport renewal notice",
-    # "Drivers license expiry alert", "Tax deadline reminder", "Legal document review request",
-    # "Notarization appointment", "Immigration status update", "Building permit approval",
-    # "Voter registration confirmation",
-    # # Entertainment/events
-    # "Concert ticket confirmation", "Movie screening invite", "Game night planning",
-    # "Festival lineup announcement", "Streaming watchlist recommendation", "Podcast episode release",
-    # "Art exhibition opening", "Theater show reminder", "Sports match ticket", "Music album pre-order",
-    # # Tech/IT
-    # "Software update available", "Cloud storage warning", "API key expiration notice",
-    # "Domain renewal reminder", "SSL certificate expiry alert", "Server downtime notification",
-    # "Bug report acknowledgment", "Data backup confirmation", "Two-factor authentication setup",
-    # "Account security review",
-    # # Food/dining
-    # "Restaurant reservation confirmation", "Food delivery status", "Catering quote request",
-    # "Meal prep subscription update", "Grocery delivery scheduled", "Table ready notification",
-    # "Special dietary menu request", "Cooking class registration", "Food recall alert",
-    # "Happy hour promotion",
-    # # Fitness/wellness
-    # "Gym membership renewal", "Personal trainer session booking", "Yoga class schedule change",
-    # "Race registration confirmation", "Nutrition plan update", "Meditation reminder",
-    # "Sleep tracker weekly report", "Weight loss milestone", "Spa appointment confirmation",
-    # "Fitness challenge invite",
+    "LinkedIn connection request", "LinkedIn job inquiry", "LinkedIn recommendation request",
+    "LinkedIn congratulatory message", "LinkedIn follow-up after interview",
+    # Instagram
+    "Instagram DM for collaboration", "Instagram story reply", "Instagram influencer outreach",
+    "Instagram giveaway announcement", "Instagram product inquiry", "Instagram feedback request",
+    "Instagram event RSVP", "Instagram product review request", "Instagram thank you message",
+    # Email/text (extended)
+    "Customer support inquiry", "Sales follow-up", "Invoice reminder", "Payment confirmation",
+    "Subscription renewal notice", "Survey participation request", "Feedback solicitation",
+    "Account activation", "Password reset", "Account deactivation notice",
+    # Social/professional
+    "Twitter DM for networking", "Twitter event promotion", "Facebook group invite",
+    "Facebook event reminder", "Facebook page update",
+    # General messaging
+    "Holiday greeting", "Congratulations on achievement", "Condolence message",
+    "Job offer notification", "Interview scheduling",
+    # Team/messaging apps
+    "Teams meeting invite", "Teams project update", "Signal urgent alert",
+    "Messenger group creation", "Messenger event update",
+    "Slack channel announcement", "Slack direct message for help",
+    "Discord server invite", "WhatsApp group update", "Telegram broadcast message",
+    # Professional/business
+    "Job application follow-up", "Salary negotiation email", "Resignation letter",
+    "Client onboarding welcome", "Vendor contract renewal", "Board meeting summary",
+    "Quarterly report distribution", "Employee performance review", "Team standup summary",
+    "Sprint retrospective notes", "Budget approval request", "Expense reimbursement claim",
+    "Policy change announcement", "Training session invite", "Mentorship program intro",
+    # Customer-facing
+    "Product launch announcement", "Shipping status update", "Return/refund confirmation",
+    "Loyalty reward notification", "Waitlist update", "Service outage notification",
+    "Maintenance window alert", "Feature request acknowledgment", "Beta testing invitation",
+    "Referral program invite",
+    # Academic/education
+    "Course enrollment confirmation", "Assignment submission reminder", "Grade release notification",
+    "Scholarship application update", "Parent-teacher meeting invite", "Study group formation",
+    "Research collaboration proposal", "Thesis advisor check-in", "Campus event announcement",
+    "Alumni networking outreach",
+    # Personal/social
+    "Apology message", "Thank you note after dinner", "Moving announcement",
+    "Roommate search post", "Carpool coordination", "Potluck planning", "Book club discussion",
+    "Workout buddy request", "Travel itinerary sharing", "Lost item inquiry",
+    # Community/civic
+    "Volunteer opportunity", "Fundraiser announcement", "Neighborhood watch alert",
+    "Local government notice", "Petition signature request", "Community cleanup invite",
+    "Town hall meeting notice", "Blood donation drive", "Missing pet alert", "Garage sale announcement",
+    # Healthcare/medical
+    "Doctor appointment reminder", "Prescription refill notice", "Lab results notification",
+    "Insurance claim update", "Vaccination appointment", "Telemedicine session link",
+    "Hospital discharge summary", "Mental health check-in", "Dental cleaning reminder",
+    "Physical therapy follow-up",
+    # Real estate/housing
+    "Rental application status", "Lease renewal notice", "Property viewing schedule",
+    "Mortgage pre-approval update", "Maintenance request acknowledgment", "Rent payment reminder",
+    "New listing alert", "Open house invitation", "Tenant move-out notice", "HOA meeting announcement",
+    # E-commerce/shopping
+    "Cart abandonment reminder", "Flash sale alert", "Back-in-stock notification",
+    "Price drop alert", "Wishlist item on sale", "Gift card delivery",
+    "Review request after purchase", "Warranty expiration notice", "Subscription box shipment",
+    "Size exchange confirmation",
+    # Travel/hospitality
+    "Flight booking confirmation", "Hotel reservation reminder", "Trip itinerary update",
+    "Visa application status", "Airport gate change alert", "Car rental pickup details",
+    "Tour booking confirmation", "Travel insurance reminder", "Cruise embarkation details",
+    "Airbnb check-in instructions",
+    # Finance/banking
+    "Transaction alert", "Credit card statement ready", "Loan application update",
+    "Investment portfolio summary", "Tax filing reminder", "Suspicious activity alert",
+    "Wire transfer confirmation", "Direct deposit notification", "Credit score update",
+    "Overdraft warning",
+    # Legal/government
+    "Court hearing reminder", "Jury duty summons", "Passport renewal notice",
+    "Drivers license expiry alert", "Tax deadline reminder", "Legal document review request",
+    "Notarization appointment", "Immigration status update", "Building permit approval",
+    "Voter registration confirmation",
+    # Entertainment/events
+    "Concert ticket confirmation", "Movie screening invite", "Game night planning",
+    "Festival lineup announcement", "Streaming watchlist recommendation", "Podcast episode release",
+    "Art exhibition opening", "Theater show reminder", "Sports match ticket", "Music album pre-order",
+    # Tech/IT
+    "Software update available", "Cloud storage warning", "API key expiration notice",
+    "Domain renewal reminder", "SSL certificate expiry alert", "Server downtime notification",
+    "Bug report acknowledgment", "Data backup confirmation", "Two-factor authentication setup",
+    "Account security review",
+    # Food/dining
+    "Restaurant reservation confirmation", "Food delivery status", "Catering quote request",
+    "Meal prep subscription update", "Grocery delivery scheduled", "Table ready notification",
+    "Special dietary menu request", "Cooking class registration", "Food recall alert",
+    "Happy hour promotion",
+    # Fitness/wellness
+    "Gym membership renewal", "Personal trainer session booking", "Yoga class schedule change",
+    "Race registration confirmation", "Nutrition plan update", "Meditation reminder",
+    "Sleep tracker weekly report", "Weight loss milestone", "Spa appointment confirmation",
+    "Fitness challenge invite",
 ]
 
 
